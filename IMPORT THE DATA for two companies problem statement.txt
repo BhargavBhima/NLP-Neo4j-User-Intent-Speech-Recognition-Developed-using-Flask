@@ -1,0 +1,47 @@
+Code
+IMPORT THE DATA for two companies problem statement
+** create a folder real_data into the import folder, put the above files and run the code below to
+create the graph
+
+
+
+// Clear data
+MATCH (n) DETACH DELETE n;
+
+
+// load products
+LOAD CSV WITH HEADERS FROM "file:///products.csv"
+AS row2
+WITH row2 WHERE row2.product_id is not null
+// MERGE (product:Product {name: row2.name})
+MERGE (product:Product {name: row2.name, type: row2.type, sector: row2.sector,
+quantity: toFloat(row2.quantity)})
+MERGE (country2:Country {name:row2.country})
+MERGE (product)-[:IMPORTED_FROM]->(country2)
+WITH product
+
+// load materials
+LOAD CSV WITH HEADERS FROM "file:///materials.csv"
+AS row1
+WITH row1 WHERE row1.material_id is not null
+MERGE (material:Material {name: row1.material_name, type:row1.type})
+MERGE (country1:Country {name:row1.country})
+MERGE (material)-[:IMPORTED_FROM]->(country1)
+WITH material
+
+// load organisation
+LOAD CSV WITH HEADERS FROM "file:///organisation.csv" AS row
+WITH row WHERE row.org_id is not null
+MERGE (org:Organisation {name:row.name, type:row.type, location:row.location})
+WITH row,org
+UNWIND split(row.facilities, ';') AS facility
+MERGE (facl:Facility {name: facility})
+MERGE (org)-[:HAS_FACILITY]->(facl)
+WITH row,org
+UNWIND split(row.related_product, ';') AS relpro
+MERGE (product:Product {name: relpro})
+MERGE (org)-[:MAKES_PRODUCT]->(product)
+WITH row,org
+UNWIND split(row.related_material, ';') AS relmat
+MERGE (material:Material {name: relmat})
+MERGE (org)-[:USES_MATERIAL]->(material)

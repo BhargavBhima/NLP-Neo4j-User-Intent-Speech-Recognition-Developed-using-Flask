@@ -1,0 +1,28 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+        },
+        {"tag": "limit",
+         "patterns": ["limit 10 nodes", "limit 10", "show 10", "only 10" ],
+         "responses": ["limit"]
+        },
+        {"tag": "healthcare",
+         "patterns": ["list all the healthcare sector", "What organizations come under healthcare sector?", "healthcare sector" ],
+         "responses": ["health"]
+        },
+        {"tag": "masks",
+         "patterns": ["masks from china", "china masks"],
+         "responses": ["masks"]
+        },
+        {"tag": "dependent",
+         "patterns": ["most dependent countries on masks", "which countries are dependent on masks"],
+         "responses": ["dependentmasks"]
+        }
+   ]
+}

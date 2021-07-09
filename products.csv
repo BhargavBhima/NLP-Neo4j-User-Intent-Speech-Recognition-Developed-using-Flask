@@ -1,0 +1,11 @@
+product_id,name,type,sector,country,quantity
+1,MedicoOne_Masks1,Masks,healthcare,India,100
+2,MedicoOne_Masks2,Masks,healthcare,China,250
+3,MedicoOne_Masks3,Masks,healthcare,Bangladesh,324
+4,MedicoOne_PPE1,PPE,healthcare,USA,343
+5,MedicoOne_Sanitizer1,Sanitizer,healthcare,India,45
+6,LifeCorpTwo_Masks1,Masks,healthcare,China,34
+7,LifeCorpTwo_Masks2,Masks,healthcare,Bangladesh,334
+8,LifeCorpTwo_Syringe1,Syringe,healthcare,India,232
+9,LifeCorpTwo_Syringe2,Syringe,healthcare,China,899
+10,LifeCorpTwo_Syringe3,Syringe,healthcare,USA,788
